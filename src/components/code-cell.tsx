@@ -3,6 +3,7 @@ import { build } from '../bundler';
 
 import CodeEditor from './code-editor';
 import Preview from './preview';
+import Resizable from './resizable';
 
 const CodeCell: React.FC = () => {
     const [input, setInput] = useState('');
@@ -17,16 +18,24 @@ const CodeCell: React.FC = () => {
         setInput(value);
     };
     return (
-        <div>
-            <CodeEditor
-                initalValue="const a = 1;"
-                onChange={(value) => onEditorChange(value)}
-            />
-            <div>
-                <button onClick={onClick}>Submit</button>
+        <Resizable direction="vertical">
+            <div
+                style={{
+                    display: 'flex',
+                    height: '100%',
+                    flexDirection: 'row',
+                }}
+            >
+                <Resizable direction="horizontal">
+                    <CodeEditor
+                        initalValue="const a = 1;"
+                        onChange={(value) => onEditorChange(value)}
+                    />
+                </Resizable>
+
+                <Preview code={code} />
             </div>
-            <Preview code={code} />
-        </div>
+        </Resizable>
     );
 };
 

@@ -50,7 +50,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
             </button>
             <Editor
                 theme="vs-dark"
-                height="20vh"
+                height="100%"
                 value={initalValue}
                 onMount={onEditorDidMount}
                 onChange={onEditorChange}
