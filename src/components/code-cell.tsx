@@ -5,6 +5,8 @@ import CodeEditor from './code-editor';
 import Preview from './preview';
 import Resizable from './resizable';
 
+let timer: any;
+
 const CodeCell: React.FC = () => {
     const [input, setInput] = useState('');
     const [code, setCode] = useState('');
@@ -16,7 +18,17 @@ const CodeCell: React.FC = () => {
 
     const onEditorChange = (value) => {
         setInput(value);
+
+        if (timer) {
+            clearTimeout(timer);
+        }
+
+        timer = setTimeout(() => {
+            console.log('time');
+            onClick();
+        }, 5000);
     };
+
     return (
         <Resizable direction="vertical">
             <div

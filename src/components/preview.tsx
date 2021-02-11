@@ -20,7 +20,7 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
                 ref={iframe}
                 title="code"
                 srcDoc={html}
-                sandbox="allow-scripts"
+                sandbox="allow-scripts" 
             />
         </div>
     );
