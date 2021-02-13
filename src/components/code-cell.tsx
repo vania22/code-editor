@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { build } from '../bundler';
 
 import CodeEditor from './code-editor';
 import Preview from './preview';
 import Resizable from './resizable';
 
-let timer: any;
-
 const CodeCell: React.FC = () => {
     const [input, setInput] = useState('');
     const [code, setCode] = useState('');
+    const [error, setError] = useState('');
 
-    const onClick = async () => {
+    const triggerBundle = async () => {
         const result = await build(input);
-        setCode(result);
+        setCode(result.code);
+        setError(result.err);
     };
 
-    const onEditorChange = (value) => {
-        setInput(value);
+    useEffect(() => {
+        let timer: any;
 
         if (timer) {
             clearTimeout(timer);
         }
 
         timer = setTimeout(() => {
-            console.log('time');
-            onClick();
+            triggerBundle();
         }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [input]);
+
+    const onEditorChange = (value) => {
+        setInput(value);
     };
 
     return (
@@ -45,7 +50,7 @@ const CodeCell: React.FC = () => {
                     />
                 </Resizable>
 
-                <Preview code={code} />
+                <Preview code={code} error={error} />
             </div>
         </Resizable>
     );
