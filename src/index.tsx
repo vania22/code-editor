@@ -1,17 +1,14 @@
-import ReactDOM from 'react-dom';
-import { useState } from 'react';
+import { render } from 'react-dom';
 import 'bulmaswatch/superhero/bulmaswatch.min.css';
 
-import CodeCell from './components/code-cell';
+import TextEditor from './components/text-editor';
 
 const App = () => {
-    // const [_, __] = useState('');
-
     return (
         <div>
-            <CodeCell />
+            <TextEditor />
         </div>
     );
 };
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+render(<App />, document.querySelector('#root'));
