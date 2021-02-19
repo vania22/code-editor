@@ -4,4 +4,6 @@ export interface Cell {
     type: CellTypes;
 }
 
+export type CellDirection = 'up' | 'down';
+
 export type CellTypes = 'code' | 'text';
