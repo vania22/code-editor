@@ -1,1 +1,1 @@
-import { ActionType } from './../action-types/index';
+export default 1;
