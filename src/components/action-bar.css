@@ -1,0 +1,23 @@
+.action-bar {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    padding-right: 20px;
+}
+.action-bar button:first-of-type {
+    margin-left: auto;
+}
+
+.action-bar button {
+    margin-right: 10px;
+    background-color: #df691a;
+    color: #fff;
+    border: 0;
+    padding: 8px 12px;
+    outline: none;
+    cursor: pointer;
+}
+
+.action-bar button:hover {
+    opacity: 0.9;
+}

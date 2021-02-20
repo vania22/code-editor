@@ -48,7 +48,7 @@ const reducer = produce((state: CellsState = initialState, action: Action) => {
             const cell: Cell = {
                 id: randomId(),
                 type: action.payload.type,
-                content: '',
+                content: 'Hey, start working with me!',
             };
 
             state.data[cell.id] = cell;

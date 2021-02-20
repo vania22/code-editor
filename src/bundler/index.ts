@@ -13,8 +13,6 @@ export const build = async (rawCode: string) => {
         });
     }
 
-    console.log(rawCode);
-
     try {
         const result = await service.build({
             entryPoints: ['index.js'],

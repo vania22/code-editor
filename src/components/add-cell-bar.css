@@ -1,0 +1,29 @@
+.add-cell-bar {
+    position: relative;
+    margin-top: 30px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-cell-bar .divider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #df691a;
+}
+
+.add-cell-bar button {
+    margin: 0 10%;
+    position: relative;
+    z-index: 999;
+    height: 30px;
+}
+
+b {
+    margin-right: 10px;
+    font-size: 27px !important;
+}
